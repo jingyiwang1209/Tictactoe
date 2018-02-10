@@ -8,9 +8,7 @@ import './index.css';
 import Game from './components/Game';
 
 
-
-
-let store = createStore(Reducers, {})
+let store = createStore(Reducers, {});
 ReactDOM.render(
   <Provider store={store} >
   <Game />

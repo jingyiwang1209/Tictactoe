@@ -1,10 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import { handleClick } from '../actions/squares';
 import Square from "./Square";
 import * as actions from "../actions";
+import generateWinner from '../utilities/generateWinner';
 
 class Board extends React.Component {
   state = {
@@ -37,6 +37,7 @@ class Board extends React.Component {
   render() {
     let status = "Next player: X";
     const squares = this.props.squares;
+    const stepTracker = this.props.stepTracker;
     const player = this.state.isNextO ? 'O':'X'
     const winner = generateWinner(squares)
     if(winner) {
@@ -59,28 +60,8 @@ class Board extends React.Component {
 // };
 const mapStateToProps = state => {
   return {
-    squares: state.appReducer
+    squares: state.appReducer[state.appReducer.length - 1].squares,
   };
 };
 export default connect(mapStateToProps, actions)(Board);
 
-// Helper function
-function generateWinner(squares) {
-  const lines = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-  ];
-  for (let i = 0; i < lines.length; i++) {
-    const [p1, p2, p3] = lines[i];
-    if (squares[p1] && squares[p1] === squares[p2] && squares[p1] === squares[p3]) {
-      return squares[p1];
-    }
-  }
-  return null;
-}

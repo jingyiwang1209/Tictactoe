@@ -48,6 +48,15 @@ ol, ul {
   outline: none;
 }
 
+.stepInfo {
+  list-style: none;
+  padding-top: 10px
+}
+
+.step:hover{
+  cursor:pointer;
+}
+
 .kbd-navigation .square:focus {
   background: #ddd;
 }
@@ -58,5 +67,6 @@ ol, ul {
 }
 
 .game-info {
-  margin-left: 20px;
+  display: flex;
+  flex-flow: column;
 }

@@ -7,3 +7,10 @@ export const handleClick = (index, isNextO) => {
     }
   };
 };
+
+export const travelBack = (stepTracker) =>{
+    return {
+        type:'travelBack',
+        payload: stepTracker
+    };
+}

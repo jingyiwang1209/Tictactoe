@@ -2,18 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from "react-redux";
 import Board from './Board';
-
+import StepInfo from './StepInfo';
 
 class Game extends React.Component {
   render() {
     return (
       <div className="game">
         <div className="game-board">
-          <Board squares={this.props.squares}/>
+          <Board />
         </div>
         <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
+          <StepInfo />
         </div>
       </div>
     );
