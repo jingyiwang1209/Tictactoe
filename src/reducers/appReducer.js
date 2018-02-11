@@ -19,11 +19,10 @@ export default (state = INITIAL_STATE, action)=>{
       }
       let newsStepTracker = latest.stepTracker + 1;
 
-      let newState = state.concat([{
+      return [...state, {
         squares:newSquare,
         stepTracker:newsStepTracker
-      }]);
-      return newState;
+      }];
 
     case "travelBack":
       let stepTracker = action.payload;
